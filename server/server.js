@@ -2,6 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const morgan = require('morgan');
+const axios = require('axios');
 
 const app = express();
 
@@ -19,6 +20,13 @@ app.get('/movieInfo/:inputValue', (req, res) => {
     });
   });
 
+//   app.get('/movieInfo/:inputValue', (req, res) => {
+//     axios.get(`http://omdbapi.com/?s=${req.params.inputValue}&apikey=${process.env.OMDB_API_KEY}`)
+//             .then(response => res.send(response.data))
+// });
+
+
+
 app.get('/movie/:id', (req, res) => {
     axios({
         url: `http://omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`,
@@ -28,5 +36,11 @@ app.get('/movie/:id', (req, res) => {
         res.send(response.data);
     });
 });
+
+// app.get('/movie/:id', (req, res) => {
+//   axios.get(`http://omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`)
+//           .then(response => res.send(response.data))
+// });
+
 
 module.exports = app;
