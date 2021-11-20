@@ -1,5 +1,9 @@
 import React from 'react';
-class MovieSearchContainer extends React.Component {
+import Search from '../components/Search';
+import MoviesList from '../components/MoviesList';
+import Header from '../components/Header';
+
+export default class MovieSearchContainer extends React.Component {
 	constructor(props) {
 		super(props);
 	}
@@ -7,10 +11,10 @@ class MovieSearchContainer extends React.Component {
 	render() {
 		return (
 			<div>
-				{/* <h1>Movie Search Container</h1> */}
+				<Header />
+				<Search />
+				<MoviesList />
 			</div>
 		)
 	}
 }
-
-export default MovieSearchContainer;

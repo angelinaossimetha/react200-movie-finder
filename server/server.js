@@ -10,9 +10,10 @@ app.use(morgan('dev'));
 app.use(express.static('dist'));
 app.use(express.static('public'));
 
-app.get('/movieInfo/:inputValue', (req, res) => {
+app.get('/movies/:inputValue', (req, res) => {
+  let query = req.params.inputValue; 
     axios({
-      url: `http://omdbapi.com/?s=${req.params.inputValue}&apikey=${process.env.OMDB_API_KEY}`,
+      url: `http://omdbapi.com/?s=${query}&apikey=${process.env.OMDB_API_KEY}`,
       method: 'get'
     })
     .then((response) => {
@@ -20,27 +21,15 @@ app.get('/movieInfo/:inputValue', (req, res) => {
     });
   });
 
-//   app.get('/movieInfo/:inputValue', (req, res) => {
-//     axios.get(`http://omdbapi.com/?s=${req.params.inputValue}&apikey=${process.env.OMDB_API_KEY}`)
-//             .then(response => res.send(response.data))
-// });
-
-
-
 app.get('/movie/:id', (req, res) => {
+  let id = req.params.id;
     axios({
-        url: `http://omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`,
+        url: `http://omdbapi.com/?i=${id}&apikey=${process.env.OMDB_API_KEY}`,
         method: 'get'
     })
     .then((response) => {
         res.send(response.data);
     });
 });
-
-// app.get('/movie/:id', (req, res) => {
-//   axios.get(`http://omdbapi.com/?i=${req.params.id}&apikey=${process.env.OMDB_API_KEY}`)
-//           .then(response => res.send(response.data))
-// });
-
 
 module.exports = app;

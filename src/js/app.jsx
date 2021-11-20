@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   HashRouter as Router,
   Route
@@ -16,6 +16,6 @@ export default class App extends React.Component {
           <Route path='/movie/:id' component={MovieDetailContainer} />
         </div>
       </Router>
-    )
+    );
   }
 }

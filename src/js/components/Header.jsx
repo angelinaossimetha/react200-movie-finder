@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 
-export class Header extends PureComponent {
+export default class Header extends PureComponent {
     render() {
         return (
             <div className='jumbotron text-left' >

@@ -1,14 +1,14 @@
 import { connect } from 'react-redux';
-import  MoviesList  from './MoviesList';
+import  MovieDetailContainer  from './MovieDetailContainer';
 
 // This function takes the store and returns an object
 // that's passed to the props of the component.
 function mapStoreToProps(store) {
     return {
-        movies: store.search.movies
+        movieDetails : store.movieDetails
     };
 }
 
 // This might look odd but, connect returns a function,
 // that is then called with the component itself.
-export default connect(mapStoreToProps)(MoviesList);
+export default connect(mapStoreToProps)(MovieDetailContainer);
