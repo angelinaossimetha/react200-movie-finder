@@ -5,7 +5,7 @@ import  MovieDetailContainer  from './MovieDetailContainer';
 // that's passed to the props of the component.
 function mapStoreToProps(store) {
     return {
-        movieDetails : store.movieDetails
+        movieDetails : store.movieDetails.movieDetails
     };
 }
 

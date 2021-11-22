@@ -4,7 +4,7 @@ const defaultState = {
 
 export default function movieDetailReducer(state = defaultState, action) {
     const { type, payload } = action;
-    console.log(type);
+    console.log("type", type);
     switch (type) {
         case 'GET_MOVIE_DETAILS_FULFILLED': {
             return {

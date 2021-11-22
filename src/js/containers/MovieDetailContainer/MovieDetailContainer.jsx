@@ -9,16 +9,16 @@ export default class MovieDetailContainer extends React.Component {
     super(props);
   }
 
-  componentDidMount() { 
-    const {dispatch} = this.props;
+  componentDidMount() {
+    const { dispatch } = this.props;
     let id = this.props.match.params.id;
     dispatch(getMovieDetails(id));
-}
+  }
 
   render() {
-    const {movieDetails} = this.props;
-    console.log(movieDetails);
- 
+    const { movieDetails } = this.props;
+    console.log("cats", movieDetails);
+
     return (
       <div>
         <Header />
@@ -27,15 +27,26 @@ export default class MovieDetailContainer extends React.Component {
           <div className='card-header text-white bg-primary mb-3'>Movie Details</div>
           <div className='card-body'>
             <Link to="/" className="pull-left btn btn-primary">Go Back</Link>
+            <br />
+            <div className='card'>
+              <div className='card-body'>
+                <h3>{movieDetails.Title}</h3>
+                <p>{movieDetails.Year}</p>
+                <p>{movieDetails.Runtime}</p>
+                <p>{movieDetails.Genre}</p>
+                <h6>{" "}</h6>
+                <p>{movieDetails.Plot}</p>
+                <br />
+                <p>{movieDetails.Awards != "N/A" ? movieDetails.Awards : " "}</p>
+                <p>
+                  <span><b>Metascore:</b> {movieDetails.MetaScore}/100</span>
+                  <br />
+                  <span><b>IMDB:</b> {movieDetails.imdbRating}/10</span>
+                </p>
+              </div>
+            </div>
 
-            <p className="text-center text-success font-weight-bold">{movieDetails.Title}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.Year}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.Runtime}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.Genre}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.Plot}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.Awards}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.MetaScore}</p>
-            <p className="text-center text-success font-weight-bold">{movieDetails.imdbRating}</p>
+
           </div>
         </div>
       </div>
