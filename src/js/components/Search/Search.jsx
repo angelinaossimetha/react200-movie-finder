@@ -27,7 +27,7 @@ export default class Search extends Component {
                 <div className='input-group'>
                     <input id='query' name='query' type='text' className='form-control'  onChange={this.handleUpdateUserQuery}></input>
                     <div className='input-group-append'>
-                        <button className='btn btn-outline-secondary' type='button' onClick={this.handleSearchMovies}>Go!</button>
+                        <button className='btn btn-outline-secondary' id='search' type='button' onClick={this.handleSearchMovies}>Go!</button>
                     </div>
                 </div>
             </div>
